@@ -1,0 +1,52 @@
+<h1 id="tableLabel" style="text-align:center;">Producer</h1>
+
+<button mat-raised-button style="background-color:#0059d4;color:white"   [routerLink]="['/producer-add']">Add Producer</button>
+
+<p *ngIf="!producers"><em>Loading...</em></p>
+
+
+
+<table mat-table [dataSource]="producers" class="mat-elevation-z8">
+
+
+ 
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Producer Name </th>
+    <td mat-cell *matCellDef="let producer"> {{producer.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef>  Age </th>
+    <td mat-cell *matCellDef="let producer"> {{producer.age}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nationality">
+    <th mat-header-cell *matHeaderCellDef>  Nationality </th>
+    <td mat-cell *matCellDef="let producer"> {{producer.nationality}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef>  Gender </th>
+    <td mat-cell *matCellDef="let producer"> {{producer.gender}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let producer"> <a matTooltip="Update {{producer.name}}" mat-raised-button style="background-color: #0059d4;color: white
+" href="/producer-update?id={{producer.id}}">Update</a></td>
+
+
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let producer">
+      <button mat-raised-button style="background-color:#0059d4;color:white" matTooltip="Delete {{producer.name}}" aria-label="Example icon button with a home icon">
+        <mat-icon aria-hidden="false" aria-label="Examplae" (click)="deleteProducer(producer)" style="cursor:pointer">Delete</mat-icon>
+      </button>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

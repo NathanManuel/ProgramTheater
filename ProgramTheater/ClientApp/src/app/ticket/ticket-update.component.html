@@ -1,0 +1,35 @@
+<h1 id="tableLabel">Update Sponsor</h1>
+
+
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Ticket buyer</mat-label>
+        <input matInput placeholder="ticket buyer" [(ngModel)]="ticket.buyerName" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Main Actor</mat-label>
+        <mat-select [(ngModel)]="ticket.play">
+          <span *ngFor="let play of plays">
+            <mat-option value="{{play.id}}"> {{play.playName}} </mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Sponsor money amount</mat-label>
+        <input matInput placeholder="ammount" [(ngModel)]="ticket.pay" />
+      </mat-form-field> <b>  Lei</b>
+    </td>
+  </tr>
+</table>
+
+<button mat-raised-button style="background-color:#0059d4;color: white"  (click)="updateTicket()">Update ticket</button>

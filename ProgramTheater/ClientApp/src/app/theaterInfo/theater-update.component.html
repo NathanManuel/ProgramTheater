@@ -1,0 +1,40 @@
+<h1 id="tableLabel">Update Theater</h1>
+
+
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Theater Name</mat-label>
+        <input matInput placeholder="name" [(ngModel)]="theater.name" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Theater Country</mat-label>
+        <input matInput placeholder="country" [(ngModel)]="theater.country" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Theater City</mat-label>
+        <input matInput placeholder="city" [(ngModel)]="theater.city" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Theater Street</mat-label>
+        <input matInput placeholder="street" [(ngModel)]="theater.street" />
+      </mat-form-field>
+    </td>
+  </tr>
+
+</table>
+
+<button mat-raised-button style="background-color:#0059d4;color: white"  (click)="updateTheater()">Update Theater</button>

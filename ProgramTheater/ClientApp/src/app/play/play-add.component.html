@@ -1,0 +1,53 @@
+<h1 id="tableLabel">Add play</h1>
+
+
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Play name</mat-label>
+        <input matInput placeholder="Name" [(ngModel)]="play.playName" />
+      </mat-form-field>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Main Actor</mat-label>
+        <mat-select [(ngModel)]="play.mainActor">
+          <span *ngFor="let actor of actors">
+            <mat-option value="{{actor.id}}"> {{actor.name}} </mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Producer</mat-label>
+        <mat-select [(ngModel)]="play.producer">
+          <span *ngFor="let producer of producers">
+            <mat-option value="{{producer.id}}"> {{producer.name}} </mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Play</mat-label>
+        <mat-select [(ngModel)]="play.theater">
+          <span *ngFor="let theater of theaters">
+            <mat-option value="{{theater.id}}"> {{theater.name}} </mat-option>
+          </span>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+
+<button mat-raised-button style="background-color:#0059d4;color: white" (click)="savePlay()">Save Play</button>

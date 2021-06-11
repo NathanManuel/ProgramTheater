@@ -1,0 +1,48 @@
+<h1 id="tableLabel" style="text-align:center;">Sponsor</h1>
+
+
+<button mat-raised-button style="background-color:#0059d4;color: white" [routerLink]="['/ticket-add']">Add Ticket</button>
+
+<p *ngIf="!tickets"><em>Loading...</em></p>
+
+
+
+<table mat-table [dataSource]="tickets" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="buyerName">
+    <th mat-header-cell *matHeaderCellDef> Sponsor Name </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.buyerName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="play">
+    <th mat-header-cell *matHeaderCellDef>  Play Name </th>
+    <td mat-cell *matCellDef="let ticket">
+      <span *ngFor="let play of plays">
+        <div *ngIf="ticket.play == play.id"> {{play.playName}}</div>
+      </span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="seatL">
+    <th mat-header-cell *matHeaderCellDef> Sponser ammount </th>
+    <td mat-cell *matCellDef="let ticket"> {{ticket.pay}} Lei</td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let ticket"> <a mat-raised-button style="background-color:#0059d4;color: white" matTooltip="Update {{ticket.buyerName}}"  href="/ticket-update?id={{ticket.id}}">Update</a></td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let ticket">
+      <button mat-raised-button style="background-color:#0059d4;color: white"  matTooltip="Delete {{ticket.buyerName}}" aria-label="Example icon button with a home icon">
+        <mat-icon aria-hidden="false" aria-label="Examplae" (click)="deleteTicket(ticket)" style="cursor:pointer">Delete</mat-icon>
+      </button>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="disticketedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: disticketedColumns;"></tr>
+</table>

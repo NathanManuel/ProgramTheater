@@ -1,0 +1,43 @@
+<h1 id="tableLabel">Update Actor</h1>
+
+
+<table class="example-full-width" cellspacing="0">
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Actor Name</mat-label>
+        <input matInput placeholder="name" [(ngModel)]="actor.name" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Age</mat-label>
+        <input matInput placeholder="age" [(ngModel)]="actor.age" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nationality</mat-label>
+        <input matInput placeholder="nationality" [(ngModel)]="actor.nationality" />
+      </mat-form-field>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="actor.gender">
+          <mat-option value="Male"> Male </mat-option>
+          <mat-option value="Female"> Female </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+
+</table>
+
+<button mat-raised-button style="background-color:#0059d4;color: white"  (click)="updateActor()">Update actor</button>
